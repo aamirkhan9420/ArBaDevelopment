@@ -1,8 +1,12 @@
+import { Box } from '@chakra-ui/react'
 import React from 'react'
+import Products from '../Products/Products'
 
 function AllProducts() {
   return (
-    <div>AllProducts</div>
+  <Box>
+    <Products />
+  </Box>
   )
 }
 

@@ -19,27 +19,24 @@ function ModalBox() {
             <Modal closeOnOverlayClick={false} isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
                 <ModalContent>
-                    <ModalHeader>Create your account</ModalHeader>
-                    <ModalCloseButton />
+                    <ModalHeader>TERMS & CONDITIONS</ModalHeader>
+
                     <ModalBody pb={6}>
-                        hellaksdbfkjasbdkf kasbdkf b
-                        hellaksdbfkjasbdkf kasbdkf b
-                        hellaksdbfkjasbdkf kasbdkf b
-                        hellaksdbfkjasbdkf kasbdkf b
-                        hellaksdbfkjasbdkf kasbdkf b
-                        hellaksdbfkjasbdkf kasbdkf b
-                        hellaksdbfkjasbdkf kasbdkf b
-                        hellaksdbfkjasbdkf kasbdkf b
-                        hellaksdbfkjasbdkf kasbdkf b
-                        hellaksdbfkjasbdkf kasbdkf b
-                        hellaksdbfkjasbdkf kasbdkf b
-                        hellaksdbfkjasbdkf kasbdkf b
-                        hellaksdbfkjasbdkf kasbdkf b
-                        hellaksdbfkjasbdkf kasbdkf b
+
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                        Facere modi voluptatibus deleniti dolores assumenda,
+                        ad tempora ipsa doloribus.
+                        Quo facere dicta delectus voluptate eaque in dignissimos facilis ut
+                        mollitia placeat, nobis quasi neque culpa fugiat id.
+                        Obcaecati quod pariatur nesciunt provident sunt iste. Voluptas dolor delectus voluptatum sint, fuga reprehenderit!
+                        ad tempora ipsa doloribus.
+                        Quo facere dicta delectus voluptate eaque in dignissimos facilis ut
+                        mollitia placeat, nobis quasi neque culpa fugiat id.
+                        Obcaecati quod pariatur nesciunt provident sunt iste. Voluptas dolor delectus voluptatum sint, fuga reprehenderit!
 
                     </ModalBody>
 
-                    <ModalFooter gap={2}>
+                    <ModalFooter gap={2} display={"flex"} w={"100%"} justifyContent={"space-around"}>
 
                         <Button colorScheme='blue' onClick={onClose}>Cancel</Button>
                         <Button colorScheme='blue' onClick={() => handleAccept()} mr={3}>

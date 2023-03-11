@@ -11,7 +11,7 @@ let reducer = (oldState = initailState, action) => {
 
         case types.LOGIN_REQUEST: return { ...oldState, isAuthLoading: true }
         case types.LOGIN_SUCCESS:
-            // localStorage.setItem("token", payload)
+        
             localStorage.setItem("isAuth", true)
 
             return { ...oldState, isAuthLoading: false, isAuthErr: false, token: payload, isAuth: true }
