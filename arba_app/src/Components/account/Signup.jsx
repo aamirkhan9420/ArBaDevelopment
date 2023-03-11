@@ -8,9 +8,10 @@ import Logo from '../Logo/Logo'
 
 function Signup() {
     let [show, setShow] = useState(false)
+ 
     let handleForm = (e) => {
         e.preventDefault()
-        console.log("hello")
+ 
     }
     return (
         <Box>
@@ -50,7 +51,7 @@ function Signup() {
                                         </Button>
                                     </InputRightElement>
                                 </InputGroup>
-                                <Input type={"submit"} placeholder={"Register"} bgColor={"rgb(44, 203, 203)"} color={"white"} />
+                                <Input type={"submit"} cursor={"pointer"} placeholder={"Register"} bgColor={"rgb(44, 203, 203)"} color={"white"} />
                                 <Text  >
 
                                     Already have an account? <Link to={"/login"} style={{ fontWeight: 600, color: "skyblue" }}>Login</Link>
