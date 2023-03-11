@@ -4,7 +4,7 @@ import { Navigate, useLocation } from 'react-router-dom'
 
 function RequiredAuth({ children }) {
   let isAuth = useSelector((state) => {
-    return state.isAuth
+    return state.AuthReducer.isAuth
   })
   console.log(isAuth)
   let location = useLocation()

@@ -2,7 +2,6 @@ import { Box, Button, FormControl, Highlight, Image, Input, InputGroup, InputRig
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
 import React, { useState } from 'react'
 import LoginLeftBox from './LoginLeftBox'
-import { color } from 'framer-motion'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Logo from '../Logo/Logo'
 import { useDispatch } from 'react-redux'
