@@ -1,5 +1,6 @@
 import { Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure } from "@chakra-ui/react"
 import { useEffect } from "react"
+import { useLocation } from "react-router-dom"
 
 function ModalBox() {
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -7,6 +8,7 @@ function ModalBox() {
         localStorage.setItem("T&C", true)
         onClose()
     }
+    let location=useLocation()
     useEffect(() => {
         let show = JSON.parse(localStorage.getItem("T&C"))
         if (!show) {
@@ -16,7 +18,10 @@ function ModalBox() {
     }, [])
     return (
         <>
+        
+      {location.pathname=="/profile"&&<Button colorScheme='blue' onClick={onOpen}>See T&C</Button>}
             <Modal closeOnOverlayClick={false} isOpen={isOpen} onClose={onClose}>
+
                 <ModalOverlay />
                 <ModalContent>
                     <ModalHeader>TERMS & CONDITIONS</ModalHeader>

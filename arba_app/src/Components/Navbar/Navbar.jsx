@@ -59,7 +59,9 @@ function Navbar() {
                                 </Link>
                             </MenuItem>}
                         <MenuItem>
-                            Profile
+                        <Link to={"/profile"}> 
+                         Profile
+                        </Link>
                         </MenuItem>
                         <MenuItem>
                             Code challenge
