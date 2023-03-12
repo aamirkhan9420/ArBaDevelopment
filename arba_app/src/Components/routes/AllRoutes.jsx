@@ -5,6 +5,7 @@ import Profile from '../account/Profile'
 import Signup from '../account/Signup'
 import AllProducts from '../AllProducts/AllProducts'
 import Cart from '../Cart/Cart'
+import CodingChallenge from '../CodingChallenge/CodingChallenge'
 import Home from '../Home/Home'
 import RequiredAuth from '../RequiredAuth'
 
@@ -23,6 +24,9 @@ function AllRoutes() {
     <Route path='/products' element={<AllProducts />}/>
     <Route path='/cart' element={<Cart />}/>
     <Route path='/profile' element={<Profile />}/>
+    <Route path='/codingchallenge' element={<CodingChallenge />}/>
+
+    
 
 
 

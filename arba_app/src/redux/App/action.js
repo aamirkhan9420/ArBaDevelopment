@@ -20,8 +20,8 @@ let getProducts = (number) => (dispatch) => {
 let addToCart=(data)=>(dispatch)=>{
 
     dispatch({ type: types.POST_CART_REQUEST})
-  
-    fetch(`http://localhost:3004/cart`, {
+     
+    fetch(`https://first-deploy-92k2.onrender.com/addcart`, {
         method: "POST",
         body:JSON.stringify(data),
         headers: {
@@ -29,8 +29,9 @@ let addToCart=(data)=>(dispatch)=>{
           },
 
     }).then((res) => res.json()).then((res) => {
-
-        dispatch({ type: types.POST_CART_SUCCESS, payload: res })
+          console.log(res.msg)
+        dispatch({ type: types.POST_CART_SUCCESS, payload: res.msg })
+  
 
     }).catch((err) => {
         console.log(err)
@@ -42,12 +43,12 @@ let GetCart=()=>(dispatch)=>{
 
     dispatch({ type: types.GET_CART_REQUEST})
 
-    fetch(`http://localhost:3004/cart`, {
+    fetch(`https://first-deploy-92k2.onrender.com/cart`, {
         method: "GET",
 
     }).then((res) => res.json()).then((res) => {
-   
-        dispatch({ type: types.GET_CART_SUCCESS, payload: res })
+     
+        dispatch({ type: types.GET_CART_SUCCESS, payload: res.msg })
 
     }).catch((err) => {
         console.log(err)
@@ -60,7 +61,7 @@ let CartQuantity=(data)=>(dispatch)=>{
 
     dispatch({ type: types.PATCH_CARTQUANTITY_REQUEST})
 
-    fetch(`http://localhost:3004/cart/${data.id}`, {
+    fetch(`https://first-deploy-92k2.onrender.com/editcart/${data._id}`, {
         method: "PATCH",
         body:JSON.stringify(data),
         headers: {
@@ -69,7 +70,7 @@ let CartQuantity=(data)=>(dispatch)=>{
 
     }).then((res) => res.json()).then((res) => {
      
-        dispatch({ type: types.PATCH_CARTQUANTITY_SUCCESS, payload: res })
+        dispatch({ type: types.PATCH_CARTQUANTITY_SUCCESS, payload: res.msg })
 
     }).catch((err) => {
         console.log(err)
@@ -82,11 +83,11 @@ let deleteCart=(data)=>(dispatch)=>{
 
     dispatch({ type: types.DELETE_CART_REQUEST})
   
-    fetch(`http://localhost:3004/cart/${data.id}`, {
+    fetch(`https://first-deploy-92k2.onrender.com/deletecart/${data._id}`, {
         method: "DELETE",
         }).then((res) => res.json()).then((res) => {
-
-        dispatch({ type: types.DELETE_CART_SUCCESS, payload: res })
+         
+        dispatch({ type: types.DELETE_CART_SUCCESS, payload: res.msg })
 
     }).catch((err) => {
         console.log(err)

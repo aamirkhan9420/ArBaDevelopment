@@ -1,4 +1,5 @@
 import { Badge, Box, Button,  Image, Stack, Text } from '@chakra-ui/react'
+import { memo } from 'react'
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
@@ -12,13 +13,16 @@ function CardBox({ props }) {
 
   let addCartItem=(data)=>{
     data.quantity=1
+    
     dispatch(addToCart(data))
+ 
     }
     let handleIncreament=(data)=>{
         let ans=cart.find((el)=>el.id==data.id)
          ans.quantity++
 
       dispatch(CartQuantity(ans))
+   
     }
     let handleDecreament=(data)=>{
       let ans=cart.find((el)=>el.id==data.id)
@@ -29,14 +33,15 @@ function CardBox({ props }) {
     dispatch(deleteCart(data))
       }
 
-      
-
-    dispatch(CartQuantity(ans))
+          dispatch(CartQuantity(ans))
   }
   let checkQuantity=(data)=>{
-    let ans=cart.find((el)=>el.id==data.id)
+    let ans=cart.find((el)=>el.id==data.id) 
+    
     return ans.quantity
+  
   }
+
 useEffect(()=>{
   dispatch(GetCart())
 },[cart.length])
@@ -71,4 +76,4 @@ useEffect(()=>{
   )
 }
 
-export default CardBox
+export default memo(CardBox)

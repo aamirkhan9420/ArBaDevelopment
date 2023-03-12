@@ -3,6 +3,7 @@ import React from 'react'
 import { ModalBox } from '../TermsAndCondition'
 
 function Profile() {
+  
   return (
    <Stack spacing={5}>
         <Box boxShadow={"md"} m={"auto"} mt={"4%"} w={"300px"} borderRadius={10}>

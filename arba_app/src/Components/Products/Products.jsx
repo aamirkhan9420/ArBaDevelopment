@@ -27,7 +27,7 @@ function Products() {
   console.log(products)
     return (
         <Box m={"auto"} padding={{ base: 4, sm: 14, md: 14, lg: 8, xl: 10 }} >
-            <Box w="100%" textAlign={"left"} fontSize={20} fontWeight={600}>
+            <Box w="100%" textAlign={"left"} fontSize={20} fontWeight={700}>
                 <Text>Products</Text>
             </Box>
             <Grid m={"auto"} templateRows='repeat(2, 1fr)' templateColumns={{ base: 'repeat(1, 1fr)', sm: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)', xl: 'repeat(4, 1fr)' }}
