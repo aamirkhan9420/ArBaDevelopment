@@ -8,7 +8,7 @@ let initailState = {
 }
 let reducer = (oldState = initailState, action) => {
     let { type, payload } = action
-    console.log(payload)
+   
     switch (type) {
         // ---------------------------Getproductstart-----------------//
 

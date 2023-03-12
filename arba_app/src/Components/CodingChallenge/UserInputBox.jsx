@@ -28,11 +28,11 @@ function UserInputBox() {
     }
     return (
         <Box m={"auto"} padding={{ base: 4, sm: 14, md: 14, lg: 8, xl: 10 }} w={"90%"}>
-            <Box textAlign={"left"} fontSize={20} fontWeight={700} border={"1px solid red"} m={"auto"}>
+            <Box textAlign={"left"} fontSize={20} fontWeight={700}  m={"auto"}>
                 <Text>Data Collection</Text>
             </Box>
 
-            <Box pl= {{base:"0%",sm:"2%",md:"5%",lg:"5%",xl:"5%"}} border={"1px solid red"} w={"fit-content"} textAlign={"left"} display={"flex"} flexDir={{base:"column",sm:"column",md:"row",lg:"row",xl:"row"}} justifyContent={"space-between"} alignItems={"center"} gap={10} pt={5} pb={5} >
+            <Box pl= {{base:"0%",sm:"2%",md:"5%",lg:"5%",xl:"5%"}}  w={"fit-content"} textAlign={"left"} display={"flex"} flexDir={{base:"column",sm:"column",md:"row",lg:"row",xl:"row"}} justifyContent={"space-between"} alignItems={"center"} gap={10} pt={5} pb={5} >
                 <FormControl>
                     <Input value={inp} onChange={(e) => setInput(e.target.value)} placeholder='Input' variant="flushed" borderBottom="3px solid skyblue" />
                     <FormHelperText>Enter the values with comma(,)seperator eg: 1,3,6,4,1,2</FormHelperText>

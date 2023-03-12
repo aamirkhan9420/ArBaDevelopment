@@ -1,5 +1,5 @@
 import { Badge, Box, Button,  Image, Stack, Text } from '@chakra-ui/react'
-import { memo } from 'react'
+
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
@@ -13,7 +13,7 @@ function CardBox({ props }) {
 
   let addCartItem=(data)=>{
     data.quantity=1
-    
+
     dispatch(addToCart(data))
  
     }
@@ -26,14 +26,15 @@ function CardBox({ props }) {
     }
     let handleDecreament=(data)=>{
       let ans=cart.find((el)=>el.id==data.id)
-
+  
       if(ans.quantity>1){
-         ans.quantity--
+         ans.quantity-- 
+         dispatch(CartQuantity(ans))
       }else{
-    dispatch(deleteCart(data))
+    dispatch(deleteCart(ans))
       }
 
-          dispatch(CartQuantity(ans))
+         
   }
   let checkQuantity=(data)=>{
     let ans=cart.find((el)=>el.id==data.id) 
@@ -43,7 +44,9 @@ function CardBox({ props }) {
   }
 
 useEffect(()=>{
+  
   dispatch(GetCart())
+ 
 },[cart.length])
   return (
 
@@ -63,7 +66,7 @@ useEffect(()=>{
 
       </Stack>
       <Box  p={2}>
-        {cart.length > 0 && cart.find(({ id }) => id === props.id) !== undefined ?
+        {cart.length >0 && cart.find(( el ) => el.id === props.id && el.quantity>=1) !== undefined ?
         <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={3}>
           <Button bgColor={"#D11243"} color={"white"} onClick={()=>handleDecreament(props)}>-</Button >
           <Text>{checkQuantity(props)}</Text>
@@ -76,4 +79,4 @@ useEffect(()=>{
   )
 }
 
-export default memo(CardBox)
+export default CardBox

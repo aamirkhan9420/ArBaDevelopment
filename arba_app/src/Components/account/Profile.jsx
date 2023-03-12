@@ -11,7 +11,7 @@ function Profile() {
                 <Image w={"100%"} borderRadius={10} src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpqchhpDqTHjXT61lvvraMQJGDz-_DokaD1KsSnrtvX-Rz_QITPZg_emE5Phw_ttcvs1w&usqp=CAU'/>
             </Box>
             <Box p={2}>
-               <Text>Username: aamir khan</Text>
+               <Text>Username: mor_2314</Text>
                <Text>Email: useremai@123</Text>
             </Box>
         </Box>

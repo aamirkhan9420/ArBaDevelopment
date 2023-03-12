@@ -9,9 +9,10 @@ import { getUserLogin } from '../../redux/Auth/action'
 
 function Login() {
   let [show, setShow] = useState(false)
-
-  let [username, setUsername] = useState("mor_2314")
-  let [password, setPassword] = useState("83r5^_")
+// mor_2314
+// 83r5^_
+  let [username, setUsername] = useState("")
+  let [password, setPassword] = useState("")
   let dispatch = useDispatch()
   let navigate = useNavigate()
   let location = useLocation()
@@ -34,11 +35,11 @@ function Login() {
     <Box>
       <Box m={"auto"} boxShadow={"md"} width={{ base: "95%", sm: "55%", md: "70%", lg: "65%", xl: "50%" }} h={"80vh"} mt={20} display={"flex"}>
         <LoginLeftBox />
-        <Box gap={5} padding={{ base: 4, sm: 6, md: 6, lg: 8, xl: 10 }} display={"flex"} alignItems={"center"} flexDir={"column"} justifyItems={"center"} border={"1px solid red"} w={{ base: "100%", sm: "100%", md: "50%", lg: "50%", xl: "50%" }}>
+        <Box gap={5} padding={{ base: 4, sm: 6, md: 6, lg: 8, xl: 10 }} display={"flex"} alignItems={"center"} flexDir={"column"} justifyItems={"center"}  w={{ base: "100%", sm: "100%", md: "50%", lg: "50%", xl: "50%" }}>
 
           <Logo />
           <Text>Make your shopping easy</Text>
-          <Box border={"1px solid red"} width="100%"  >
+          <Box  width="100%"  >
             <form onSubmit={handleForm} >
               <Stack spacing={8}>
                 <Input value={username} placeholder='Username' variant="flushed" borderBottom="3px solid skyblue" onChange={(e) => setUsername(e.target.value)} />
