@@ -119,7 +119,7 @@ function CardBox({ props }) {
 
         <Box><Text>Rating: {props.rating.rate}</Text></Box>
 
-        <Box><Text>Price: {props.price}</Text></Box>
+        <Box><Text>Price: ₹{props.price}</Text></Box>
 
 
       </Stack>
