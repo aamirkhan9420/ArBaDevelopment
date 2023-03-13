@@ -9,10 +9,9 @@ import { getUserLogin } from '../../redux/Auth/action'
 
 function Login() {
   let [show, setShow] = useState(false)
-// mor_2314
-// 83r5^_
-  let [username, setUsername] = useState("")
-  let [password, setPassword] = useState("")
+
+  let [username, setUsername] = useState("mor_2314")
+  let [password, setPassword] = useState("83r5^_")
   let dispatch = useDispatch()
   let navigate = useNavigate()
   let location = useLocation()

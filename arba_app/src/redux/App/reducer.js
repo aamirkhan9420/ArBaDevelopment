@@ -1,10 +1,12 @@
+import { memo } from "react"
 import * as types from "./actionTypes"
 
 let initailState = {
     products: [],
     cart: [],
     isLoading: false,
-    isErr: false
+    isErr: false,
+    ischange:0
 }
 let reducer = (oldState = initailState, action) => {
     let { type, payload } = action
@@ -43,9 +45,10 @@ let reducer = (oldState = initailState, action) => {
         case types.PATCH_CARTQUANTITY_REQUEST:
             return { ...oldState, isLoading: true }
         case types.PATCH_CARTQUANTITY_SUCCESS:
-            return { ...oldState, isLoading: false, isErr: false, cart: payload }
+            return { ...oldState, isLoading: false, isErr: false, cart: payload  }
         case types.PATCH_CARTQUANTITY_FAILE:
             return { ...oldState, isLoading: false, isErr: true, cart: [] }
+            
         // ---------------------------CartQuantityend------------------//
 
          // ---------------------------DeleteCartstart-----------------//

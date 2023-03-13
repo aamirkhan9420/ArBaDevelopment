@@ -29,8 +29,9 @@ let addToCart=(data)=>(dispatch)=>{
           },
 
     }).then((res) => res.json()).then((res) => {
+        dispatch(GetCart())
          
-        dispatch({ type: types.POST_CART_SUCCESS, payload: res })
+        // dispatch({ type: types.POST_CART_SUCCESS, payload: res })
   
 
     }).catch((err) => {
@@ -60,8 +61,8 @@ let GetCart=()=>(dispatch)=>{
 let CartQuantity=(data)=>(dispatch)=>{
 
     dispatch({ type: types.PATCH_CARTQUANTITY_REQUEST})
-
-    fetch(`https://first-deploy-92k2.onrender.com/editcart/${data._id}`, {
+   
+   return  fetch(`https://first-deploy-92k2.onrender.com/editcart/${data._id}`, {
         method: "PATCH",
         body:JSON.stringify(data),
         headers: {
@@ -69,9 +70,10 @@ let CartQuantity=(data)=>(dispatch)=>{
           },
 
     }).then((res) => res.json()).then((res) => {
-      
-        dispatch({ type: types.PATCH_CARTQUANTITY_SUCCESS, payload: res })
-
+          dispatch(GetCart())
+          
+        // dispatch({ type: types.PATCH_CARTQUANTITY_SUCCESS, payload: res })
+          
     }).catch((err) => {
         console.log(err)
         dispatch({ type: types.PATCH_CARTQUANTITY_FAILE })
@@ -86,8 +88,9 @@ let deleteCart=(data)=>(dispatch)=>{
     fetch(`https://first-deploy-92k2.onrender.com/deletecart/${data._id}`, {
         method: "DELETE",
         }).then((res) => res.json()).then((res) => {
+            dispatch(GetCart())
          
-        dispatch({ type: types.DELETE_CART_SUCCESS, payload: res })
+        // dispatch({ type: types.DELETE_CART_SUCCESS, payload: res })
 
     }).catch((err) => {
         console.log(err)

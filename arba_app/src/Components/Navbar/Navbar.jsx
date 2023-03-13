@@ -22,12 +22,14 @@ function Navbar() {
     let cart = useSelector((state) => {
         return state.AppReducer.cart
     })
+    let t1=localStorage.getItem("total")
     useEffect(() => {
         dispatch(GetCart())
         let t = 0
         for (let i = 0; i < cart.length; i++) {
             t += cart[i].quantity
         }
+        
         setTotal(t)
     }, [cart.length])
     return (
@@ -38,7 +40,7 @@ function Navbar() {
 
             <Box display={"flex"} width={{ base: "40%", sm: "35%", md: "30%", lg: "25%", xl: "10%" }} alignItems={"center"} justifyContent={"space-between"} >
                 <Link to={"/cart"}>
-                    <Badge overlap="rectangular" color="secondary" badgeContent={total} >
+                    <Badge overlap="rectangular" color="secondary" badgeContent={t1} >
                         <ShoppingCartIcon color="primary" style={{ fontSize: "30px" }} />{" "}
 
                     </Badge>

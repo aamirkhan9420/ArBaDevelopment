@@ -10,9 +10,7 @@ function Products() {
     let dispatch = useDispatch()
     let products = useSelector((state) => {
         return state.AppReducer.products
-    })
-   
-    
+    })  
 
     let location = useLocation()
 
