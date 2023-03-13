@@ -7,93 +7,105 @@ import { addToCart, CartQuantity, deleteCart, GetCart } from '../redux/App/actio
 
 function CardBox({ props }) {
   let dispatch = useDispatch()
- 
 
   let cart = useSelector((state) => {
     return state.AppReducer.cart
   })
-
+  // ----when item adding first time to cart-------//
   let addCartItem = (data) => {
+
     data.quantity = 1
 
     dispatch(addToCart(data))
     let t = 0
-    for (let i = 0; i <cart.length; i++) {
-        t += cart[i].quantity
+    for (let i = 0; i < cart.length; i++) {
+      t += cart[i].quantity
     }
- 
-    if(t==0){
-      localStorage.setItem("total",1)
-    }else{
-      console.log(t)
-            localStorage.setItem("total",t+1)
-    }
-    
-    
 
+    if (t == 0) {
+      localStorage.setItem("total", 1)
+    } else {
+      console.log(t)
+      localStorage.setItem("total", t + 1)
+    }
   }
+  // ---------debouncing for increament cart quantity---------//
+  let id
+  let dbounceinc = (data) => {
+    if (id) {
+      clearTimeout(id)
+    }
+    id = setTimeout(() => {
+      handleIncreament(data)
+    }, 1000)
+  }
+  // --------------increamenting cart quantity-------------//
   let handleIncreament = (data) => {
     let ans = cart.find((el) => el.id == data.id)
     ans.quantity++
 
     dispatch(CartQuantity(ans))
-    let t =0
+    let t = 0
     for (let i = 0; i < cart.length; i++) {
-        t += cart[i].quantity
+      t += cart[i].quantity
     }
-  
-    localStorage.setItem("total",t)
-
-
+    localStorage.setItem("total", t)
   }
+  // ---------debouncing for decreament cart quantity---------//
+
+  let id1
+  let dbouncedec = (data) => {
+    if (id1) {
+      clearTimeout(id1)
+    }
+    id1 = setTimeout(() => {
+      handleDecreament(data)
+    }, 1000)
+  }
+  // --------------decreasing cart quantity-------------//
+
   let handleDecreament = (data) => {
     let ans = cart.find((el) => el.id == data.id)
-      console.log(ans.quantity)
+    console.log(ans.quantity)
     if (ans.quantity > 1) {
       ans.quantity--
       dispatch(CartQuantity(ans))
-      
+
       let t = 0
-    for (let i = 0; i < cart.length; i++) {
+      for (let i = 0; i < cart.length; i++) {
         t += cart[i].quantity
-    }
-  
-    localStorage.setItem("total",t)
-      
+      }
+
+      localStorage.setItem("total", t)
+
     } else {
-     
-     dispatch(deleteCart(ans))
-   
-      let x=localStorage.getItem("total")
-      if(x!==1&&ans.quantity==1){
-      
-        localStorage.setItem("total",x-1)
-        // return
-      } 
-      if(x==1){
-      
+      dispatch(deleteCart(ans))
+      let x = localStorage.getItem("total")
+      if (x !== 1 && ans.quantity == 1) {
+        localStorage.setItem("total", x - 1)
+      }
+      if (x == 1) {
         localStorage.removeItem("total")
-        // return
-      } 
-      
+      }
     }
-   
-    
+
   }
+
+  // ------check for cart quantity----------//
   let checkQuantity = (data) => {
     let ans = cart.find((el) => el.id == data.id)
 
     return ans.quantity
 
   }
-
+  // ------------------------------------------//
   useEffect(() => {
 
     dispatch(GetCart())
- 
-    
+
+
   }, [cart.length])
-  
+
   return (
 
     <Box boxShadow={"md"} h={{ base: "460px", sm: "440px", md: "425px", lg: "420px", xl: "400px" }} borderRadius={"10px"} display="flex" flexDir={"column"} justifyContent={"space-between"}>
@@ -114,10 +126,10 @@ function CardBox({ props }) {
       <Box p={2}>
         {cart.length > 0 && cart.find((el) => el.id === props.id) !== undefined ?
           <Box display={"flex"} justifyContent={"center"} alignItems={"center"} gap={3}>
-            <Button bgColor={"#D11243"} color={"white"} onClick={() => handleDecreament(props)}>-</Button >
+            <Button bgColor={"#D11243"} color={"white"} onClick={() => dbouncedec(props)}>-</Button >
 
             <Text>{checkQuantity(props)}</Text>
-            <Button bgColor={"#D11243"} color={"white"} onClick={() => handleIncreament(props)}>+</Button>
+            <Button bgColor={"#D11243"} color={"white"} onClick={() => dbounceinc(props)}>+</Button>
           </Box>
           :
           <Button bgColor={"#D11243"} color={"white"} onClick={() => addCartItem(props)}>Add to cart</Button>}
