@@ -3,8 +3,8 @@ import React from 'react'
 
 function Logo() {
     return (
-        <Box>
-            <Image borderRadius={"100%"} src='./arbalogo.png' h={20} w={20} />
+        <Box w={"95px"}  >
+            <Image  src='./arbalogo.png' h={"100%"} w={"100%"} />
         </Box>
 
     )

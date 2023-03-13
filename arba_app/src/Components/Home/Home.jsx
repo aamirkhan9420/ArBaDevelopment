@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/react'
 import React, { useEffect } from 'react'
-import Carousel from '../Carousel/Carousel'
+import Carousel from '../Silk'
 import Products from '../Products/Products'
 import { ModalBox } from '../TermsAndCondition'
 
