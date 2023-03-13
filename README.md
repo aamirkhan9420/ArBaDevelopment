@@ -9,7 +9,8 @@ Arba is an online shopping platform where you can buy electronics products ,clot
  
  
 <h1>Login page</h1>
-![Screenshot (2307)](https://user-images.githubusercontent.com/101388992/224696828-667fbb5d-94f6-4419-a31c-f023920d9362.png)
+
+![Screenshot (2307)](https://user-images.githubusercontent.com/101388992/224698542-2a673de5-73a1-42e1-867d-bdfc9d28fe30.png)
 
 <h1>Home page</h1>
 ![Screenshot (2308)](https://user-images.githubusercontent.com/101388992/224697012-03c2cd86-c00d-4668-b714-40df5f25d413.png)
