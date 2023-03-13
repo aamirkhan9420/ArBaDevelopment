@@ -1,13 +1,13 @@
 import { Badge, Box, Button, Image, Stack, Text } from '@chakra-ui/react'
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { addToCart, CartQuantity, deleteCart, GetCart } from '../redux/App/action'
 
 function CardBox({ props }) {
   let dispatch = useDispatch()
-  let [total, setTotal] = useState("")
+ 
 
   let cart = useSelector((state) => {
     return state.AppReducer.cart
@@ -17,13 +17,17 @@ function CardBox({ props }) {
     data.quantity = 1
 
     dispatch(addToCart(data))
-    let t = data.quantity
+    let t = 0
     for (let i = 0; i <cart.length; i++) {
         t += cart[i].quantity
     }
-    setTotal(t)
-
-      localStorage.setItem("total",t)
+ 
+    if(t==0){
+      localStorage.setItem("total",1)
+    }else{
+      console.log(t)
+            localStorage.setItem("total",t+1)
+    }
     
     
 
@@ -33,39 +37,47 @@ function CardBox({ props }) {
     ans.quantity++
 
     dispatch(CartQuantity(ans))
-    let t = 0
+    let t =0
     for (let i = 0; i < cart.length; i++) {
         t += cart[i].quantity
     }
-    setTotal(t)
+  
     localStorage.setItem("total",t)
 
 
   }
   let handleDecreament = (data) => {
     let ans = cart.find((el) => el.id == data.id)
-   
+      console.log(ans.quantity)
     if (ans.quantity > 1) {
       ans.quantity--
       dispatch(CartQuantity(ans))
-     
       
-    } else {
-     
-      dispatch(deleteCart(ans))
-      let x=localStorage.getItem("total")
-      if(x==1){
-      
-        localStorage.removeItem("total")
-        return
-      }
-    }
-    let t = 0
+      let t = 0
     for (let i = 0; i < cart.length; i++) {
         t += cart[i].quantity
     }
-    setTotal(t)
+  
     localStorage.setItem("total",t)
+      
+    } else {
+     
+     dispatch(deleteCart(ans))
+   
+      let x=localStorage.getItem("total")
+      if(x!==1&&ans.quantity==1){
+      
+        localStorage.setItem("total",x-1)
+        // return
+      } 
+      if(x==1){
+      
+        localStorage.removeItem("total")
+        // return
+      } 
+      
+    }
+   
     
   }
   let checkQuantity = (data) => {
